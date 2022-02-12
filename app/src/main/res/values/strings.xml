@@ -9,4 +9,6 @@
     <string name="tv_minutes_text">Minutes</string>
     <string name="tv_seconds_text">Seconds</string>
     <string name="tv_exam_timer_question_text">Are you ready for exams?</string>
+    <string name="tv_classes_text">Classes</string>
+    <string name="iv_open_in_content_description">Open in</string>
 </resources>

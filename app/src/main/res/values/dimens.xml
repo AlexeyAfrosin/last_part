@@ -7,4 +7,12 @@
     <dimen name="cv_timer_margin">20dp</dimen>
     <dimen name="inc_coun_down_timer_margin_top">10dp</dimen>
     <dimen name="tv_exam_timer_question_text_size">22sp</dimen>
+    <dimen name="tv_classes_margin_top">10dp</dimen>
+    <dimen name="tv_lesson_name_margin_start">10dp</dimen>
+    <dimen name="cv_lesson_margin">10dp</dimen>
+    <dimen name="tv_lesson_date_text_size">15sp</dimen>
+    <dimen name="tv_lesson_date_margin_top">10dp</dimen>
+    <dimen name="iv_open_in_width">40dp</dimen>
+    <dimen name="iv_open_in_height">40dp</dimen>
+    <dimen name="iv_open_in_layout_margin_end">10dp</dimen>
 </resources>

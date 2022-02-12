@@ -1,18 +1,61 @@
 package com.afrosin.lastpart.mvp.presenter
 
 import android.os.CountDownTimer
+import com.afrosin.lastpart.mvp.model.Lesson
 import com.afrosin.lastpart.mvp.model.examListSorted
+import com.afrosin.lastpart.mvp.model.lessonListSorted
+import com.afrosin.lastpart.mvp.presenter.adapter.LessonRVListPresenter
 import com.afrosin.lastpart.mvp.view.HomeFragmentView
+import com.afrosin.lastpart.mvp.view.item.LessonItemView
 import com.afrosin.lastpart.utils.dateDiff
 import com.afrosin.lastpart.utils.toStringFormat
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import java.util.*
 
+
 @InjectViewState
 class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
 
     private val examList = examListSorted()
+
+    val listPresenter = HomeLessonRVListPresenter()
+
+    inner class HomeLessonRVListPresenter : LessonRVListPresenter {
+        private val lessonList = lessonListSorted()
+
+
+        override fun getCount(): Int = lessonList.size
+
+        override fun bind(view: LessonItemView) {
+            initView(view, getLesson(view.pos))
+        }
+
+        private fun getLesson(pos: Int): Lesson = lessonList[pos]
+
+
+        private fun initView(view: LessonItemView, lesson: Lesson) {
+            with(view) {
+                setLessonName(lesson.name)
+                setLessonDate(lesson.startDate.toStringFormat("dd.MM.yyyy HH:mm"))
+
+                if (lesson.openInSkype) {
+                    setLessonOpenInShow()
+                } else {
+                    setLessonOpenInHide()
+                }
+
+            }
+        }
+
+        override fun openSkype(view: LessonItemView) {
+            val appName = "Skype"
+            val packageName = "com.skype.raider"
+            viewState.openApp(appName, packageName)
+        }
+    }
+
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.init()

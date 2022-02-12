@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_lesson"
+    style="@style/CardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/cv_lesson_margin"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_lesson_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tv_lesson_name_margin_start"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="@dimen/tv_exam_timer_question_text_size"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="History" />
+
+        <TextView
+            android:id="@+id/tv_lesson_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tv_lesson_date_margin_top"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="@dimen/tv_lesson_date_text_size"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_lesson_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_lesson_name"
+            tools:text="08:02:2015 09:00" />
+
+        <ImageView
+            android:id="@+id/iv_open_in"
+            android:layout_width="@dimen/iv_open_in_width"
+            android:layout_height="@dimen/iv_open_in_height"
+            android:layout_marginEnd="@dimen/iv_open_in_layout_margin_end"
+            android:contentDescription="@string/iv_open_in_content_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_skype" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

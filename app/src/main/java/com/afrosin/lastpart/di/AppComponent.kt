@@ -8,6 +8,7 @@ import com.afrosin.lastpart.mvp.presenter.HomeFragmentPresenter
 import com.afrosin.lastpart.mvp.presenter.MainPresenter
 import com.afrosin.lastpart.ui.App
 import com.afrosin.lastpart.ui.MainActivity
+import com.afrosin.lastpart.ui.adapter.LessonRVAdapter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -26,4 +27,5 @@ interface AppComponent {
 
     fun inject(homeFragmentPresenter: HomeFragmentPresenter)
     fun inject(classesFragmentPresenter: ClassesFragmentPresenter)
+    fun inject(lessonRVAdapter: LessonRVAdapter)
 }

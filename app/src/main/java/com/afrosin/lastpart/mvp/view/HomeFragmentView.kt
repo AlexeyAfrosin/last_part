@@ -15,4 +15,5 @@ interface HomeFragmentView : MvpView {
     fun setMinute2ToExam(text: String)
     fun setSecond1ToExam(text: String)
     fun setSecond2ToExam(text: String)
+    fun openApp(appName: String, packageName: String?)
 }
