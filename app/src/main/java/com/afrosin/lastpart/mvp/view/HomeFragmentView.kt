@@ -16,4 +16,5 @@ interface HomeFragmentView : MvpView {
     fun setSecond1ToExam(text: String)
     fun setSecond2ToExam(text: String)
     fun openApp(appName: String, packageName: String?)
+    fun scrollRvLesson(position: Int)
 }

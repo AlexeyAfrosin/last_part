@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/inc_coun_down_timer_margin_top"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_exam_timer_question" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cv_timer" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_classes"
+        android:id="@+id/rv_lessons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_classes" />

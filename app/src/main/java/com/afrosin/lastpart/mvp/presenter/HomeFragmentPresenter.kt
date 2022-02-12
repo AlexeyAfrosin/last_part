@@ -7,6 +7,7 @@ import com.afrosin.lastpart.mvp.model.lessonListSorted
 import com.afrosin.lastpart.mvp.presenter.adapter.LessonRVListPresenter
 import com.afrosin.lastpart.mvp.view.HomeFragmentView
 import com.afrosin.lastpart.mvp.view.item.LessonItemView
+import com.afrosin.lastpart.utils.currentTime
 import com.afrosin.lastpart.utils.dateDiff
 import com.afrosin.lastpart.utils.toStringFormat
 import moxy.InjectViewState
@@ -24,6 +25,8 @@ class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
     inner class HomeLessonRVListPresenter : LessonRVListPresenter {
         private val lessonList = lessonListSorted()
 
+        //длительность урока в милисекундах
+        private val lessonDuration = 40 * 60 * 1000
 
         override fun getCount(): Int = lessonList.size
 
@@ -53,6 +56,18 @@ class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
             val packageName = "com.skype.raider"
             viewState.openApp(appName, packageName)
         }
+
+        override fun actualPosition(): Int {
+            val currDate = currentTime()
+
+            lessonList.forEachIndexed { pos, lesson ->
+
+                if ((currDate.time - lesson.startDate.time <= lessonDuration) || (currDate.time + lessonDuration <= lesson.startDate.time)) {
+                    return pos
+                }
+            }
+            return getCount() - 1
+        }
     }
 
 
@@ -63,6 +78,9 @@ class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
         initCountDownTimer(
             dateDiff(Calendar.getInstance().time, examList[0].startDate)
         )
+
+        viewState.scrollRvLesson(listPresenter.actualPosition())
+
     }
 
     private fun initCountDownTimer(millisUntilFinished: Long) {

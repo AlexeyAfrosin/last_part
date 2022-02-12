@@ -6,4 +6,5 @@ interface LessonRVListPresenter {
     fun getCount(): Int
     fun bind(view: LessonItemView)
     fun openSkype(view: LessonItemView)
+    fun actualPosition(): Int
 }

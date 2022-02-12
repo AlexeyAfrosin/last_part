@@ -19,3 +19,5 @@ fun dateDiff(startDate: Date, endDate: Date): Long {
 
 fun Date.toStringFormat(patternDate: String = "dd.MM.yyyy HH:mm:ss"): String =
     SimpleDateFormat(patternDate, Locale.getDefault()).format(this)
+
+fun currentTime(): Date = Calendar.getInstance().time

@@ -56,11 +56,15 @@ class HomeFragment : MvpAppCompatFragment(), HomeFragmentView {
 
     private fun initRecyclerView() {
         lessonRVAdapter = LessonRVAdapter(presenter.listPresenter)
-        binding.rvClasses.run {
+        binding.rvLessons.run {
             adapter = lessonRVAdapter
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
+    }
+
+    override fun scrollRvLesson(position: Int) {
+        binding.rvLessons.scrollToPosition(position)
     }
 
     override fun setDay1ToExam(text: String) {
