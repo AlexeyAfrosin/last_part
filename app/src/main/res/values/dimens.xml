@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bottomNavigationView_height">75dp</dimen>
+    <dimen name="timer_text_size">40sp</dimen>
+    <dimen name="tv_days_text_size">17sp</dimen>
+    <dimen name="margin_start_between_digit">10dp</dimen>
+    <dimen name="cv_timer_margin">20dp</dimen>
+    <dimen name="inc_coun_down_timer_margin_top">10dp</dimen>
+    <dimen name="tv_exam_timer_question_text_size">22sp</dimen>
 </resources>

@@ -3,4 +3,10 @@
     <string name="mi_home_title">Home</string>
     <string name="mi_classes_title">Classes</string>
     <string name="binding_error">Ошибка инициализации биндинга</string>
+    <string name="colon_text">:</string>
+    <string name="tv_days_text">Days</string>
+    <string name="tv_hours_text">Hours</string>
+    <string name="tv_minutes_text">Minutes</string>
+    <string name="tv_seconds_text">Seconds</string>
+    <string name="tv_exam_timer_question_text">Are you ready for exams?</string>
 </resources>

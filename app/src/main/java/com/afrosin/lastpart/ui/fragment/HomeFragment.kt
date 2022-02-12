@@ -45,6 +45,38 @@ class HomeFragment : MvpAppCompatFragment(), HomeFragmentView {
 //        initListeners()
     }
 
+    override fun setDay1ToExam(text: String) {
+        binding.incCounDownTimer.tvDay1ToExam.text = text
+    }
+
+    override fun setDay2ToExam(text: String) {
+        binding.incCounDownTimer.tvDay2ToExam.text = text
+    }
+
+    override fun setHour1ToExam(text: String) {
+        binding.incCounDownTimer.tvHour1ToExam.text = text
+    }
+
+    override fun setHour2ToExam(text: String) {
+        binding.incCounDownTimer.tvHour2ToExam.text = text
+    }
+
+    override fun setMinute1ToExam(text: String) {
+        binding.incCounDownTimer.tvMinute1ToExam.text = text
+    }
+
+    override fun setMinute2ToExam(text: String) {
+        binding.incCounDownTimer.tvMinute2ToExam.text = text
+    }
+
+    override fun setSecond1ToExam(text: String) {
+        binding.incCounDownTimer.tvSecond1ToExam.text = text
+    }
+
+    override fun setSecond2ToExam(text: String) {
+        binding.incCounDownTimer.tvSecond2ToExam.text = text
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
