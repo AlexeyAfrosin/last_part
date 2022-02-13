@@ -1,5 +1,9 @@
 package com.afrosin.lastpart.utils
 
+import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
+import android.widget.Toast
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,3 +25,51 @@ fun Date.toStringFormat(patternDate: String = "dd.MM.yyyy HH:mm:ss"): String =
     SimpleDateFormat(patternDate, Locale.getDefault()).format(this)
 
 fun currentTime(): Date = Calendar.getInstance().time
+
+fun Context.openInApp(appName: String, packageName: String?) {
+
+    if (isAppInstalled(this, packageName!!)) {
+        if (isAppEnabled(
+                this,
+                packageName
+            )
+        ) {
+            this.startActivity(
+                this.packageManager.getLaunchIntentForPackage(
+                    packageName
+                )
+            )
+        } else {
+            Toast.makeText(this, "$appName app is not enabled.", Toast.LENGTH_SHORT)
+                .show()
+        }
+    } else {
+        Toast.makeText(
+            this,
+            "$appName app is not installed.", Toast.LENGTH_SHORT
+        ).show()
+    }
+}
+
+private fun isAppInstalled(context: Context, packageName: String): Boolean {
+    val pm = context.packageManager
+    try {
+        pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES)
+        return true
+    } catch (ignored: PackageManager.NameNotFoundException) {
+    }
+    return false
+}
+
+private fun isAppEnabled(context: Context, packageName: String): Boolean {
+    var appStatus = false
+    try {
+        val ai: ApplicationInfo = context.getPackageManager().getApplicationInfo(packageName, 0)
+        if (ai != null) {
+            appStatus = ai.enabled
+        }
+    } catch (e: PackageManager.NameNotFoundException) {
+        e.printStackTrace()
+    }
+    return appStatus
+}

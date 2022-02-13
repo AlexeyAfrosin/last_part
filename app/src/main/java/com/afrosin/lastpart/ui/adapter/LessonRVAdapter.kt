@@ -67,6 +67,10 @@ class LessonRVAdapter(val presenter: LessonRVListPresenter) :
         override fun setLessonOpenInHide() {
             itemView.iv_open_in.visibility = View.GONE
         }
+
+        override fun setLessonAdditionalLessonCardBackgroundColor() {
+            itemView.cv_lesson.setCardBackgroundColor(itemView.context.getColor(R.color.additional_lesson_color))
+        }
     }
 
 

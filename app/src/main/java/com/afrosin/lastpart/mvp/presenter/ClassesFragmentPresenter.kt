@@ -7,6 +7,8 @@ import moxy.MvpPresenter
 @InjectViewState
 class ClassesFragmentPresenter : MvpPresenter<ClassesFragmentView>() {
 
+    val lessonPresenter = LessonListPresenter(viewState)
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         viewState.init()

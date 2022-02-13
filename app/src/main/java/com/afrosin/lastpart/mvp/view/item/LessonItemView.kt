@@ -7,4 +7,5 @@ interface LessonItemView {
     fun setLessonDate(text: String)
     fun setLessonOpenInShow()
     fun setLessonOpenInHide()
+    fun setLessonAdditionalLessonCardBackgroundColor()
 }
