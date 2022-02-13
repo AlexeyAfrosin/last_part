@@ -14,6 +14,7 @@ import com.afrosin.lastpart.databinding.FragmentHomeBinding
 import com.afrosin.lastpart.mvp.presenter.HomeFragmentPresenter
 import com.afrosin.lastpart.mvp.view.HomeFragmentView
 import com.afrosin.lastpart.ui.App
+import com.afrosin.lastpart.ui.adapter.HomeworkRVAdapter
 import com.afrosin.lastpart.ui.adapter.LessonRVAdapter
 import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
@@ -39,6 +40,7 @@ class HomeFragment : MvpAppCompatFragment(), HomeFragmentView {
         get() = checkNotNull(_binding) { getString(R.string.binding_error) }
 
     private var lessonRVAdapter: LessonRVAdapter? = null
+    private var homeworkRVAdapter: HomeworkRVAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,14 +52,23 @@ class HomeFragment : MvpAppCompatFragment(), HomeFragmentView {
     }
 
     override fun init() {
-//        initListeners()
-        initRecyclerView()
+        initLessonRecyclerView()
+        initHomeworkRecyclerView()
     }
 
-    private fun initRecyclerView() {
-        lessonRVAdapter = LessonRVAdapter(presenter.listPresenter)
+    private fun initLessonRecyclerView() {
+        lessonRVAdapter = LessonRVAdapter(presenter.lessonPresenter)
         binding.rvLessons.run {
             adapter = lessonRVAdapter
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    private fun initHomeworkRecyclerView() {
+        homeworkRVAdapter = HomeworkRVAdapter(presenter.homeworkPresenter)
+        binding.rvHomework.run {
+            adapter = homeworkRVAdapter
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }

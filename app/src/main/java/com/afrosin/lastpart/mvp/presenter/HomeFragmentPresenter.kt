@@ -1,11 +1,11 @@
 package com.afrosin.lastpart.mvp.presenter
 
 import android.os.CountDownTimer
-import com.afrosin.lastpart.mvp.model.Lesson
-import com.afrosin.lastpart.mvp.model.examListSorted
-import com.afrosin.lastpart.mvp.model.lessonListSorted
+import com.afrosin.lastpart.mvp.model.*
+import com.afrosin.lastpart.mvp.presenter.adapter.HomeworkRVListPresenter
 import com.afrosin.lastpart.mvp.presenter.adapter.LessonRVListPresenter
 import com.afrosin.lastpart.mvp.view.HomeFragmentView
+import com.afrosin.lastpart.mvp.view.item.HomeworkItemView
 import com.afrosin.lastpart.mvp.view.item.LessonItemView
 import com.afrosin.lastpart.utils.currentTime
 import com.afrosin.lastpart.utils.dateDiff
@@ -20,7 +20,27 @@ class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
 
     private val examList = examListSorted()
 
-    val listPresenter = HomeLessonRVListPresenter()
+    val lessonPresenter = HomeLessonRVListPresenter()
+    val homeworkPresenter = HHomeworkRVListPresenter()
+
+    inner class HHomeworkRVListPresenter : HomeworkRVListPresenter {
+        private val homeworkList = homeworkListSorted()
+
+        override fun getCount(): Int = homeworkList.size
+        private fun getHomework(pos: Int): Homework = homeworkList[pos]
+
+        override fun bind(view: HomeworkItemView) {
+            initView(view, getHomework(view.pos))
+        }
+
+        private fun initView(view: HomeworkItemView, homework: Homework) {
+            with(view) {
+                setHomeworkName(homework.name)
+                setHomeworkDeadlineDate(homework.deadLineDate.toStringFormat("dd.MM.yyyy HH:mm"))
+                setHomeworkDescription(homework.description)
+            }
+        }
+    }
 
     inner class HomeLessonRVListPresenter : LessonRVListPresenter {
         private val lessonList = lessonListSorted()
@@ -79,7 +99,7 @@ class HomeFragmentPresenter : MvpPresenter<HomeFragmentView>() {
             dateDiff(Calendar.getInstance().time, examList[0].startDate)
         )
 
-        viewState.scrollRvLesson(listPresenter.actualPosition())
+        viewState.scrollRvLesson(lessonPresenter.actualPosition())
 
     }
 
