@@ -1,10 +1,10 @@
 package com.afrosin.lastpart.ui
 
 import android.os.Bundle
-import com.afrosin.lastpart.mvp.presenter.MainPresenter
-import com.afrosin.lastpart.mvp.view.MainView
 import com.afrosin.lastpart.R
 import com.afrosin.lastpart.databinding.ActivityMainBinding
+import com.afrosin.lastpart.mvp.presenter.MainPresenter
+import com.afrosin.lastpart.mvp.view.MainView
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
@@ -44,6 +44,5 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun exit() {
         finish()
-        TODO
     }
 }
