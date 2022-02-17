@@ -57,6 +57,10 @@ class MainFragment : MvpAppCompatFragment(), MainFragmentView {
         }
     }
 
+    override fun updateAdapter() {
+        postRVAdapter?.notifyDataSetChanged()
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()

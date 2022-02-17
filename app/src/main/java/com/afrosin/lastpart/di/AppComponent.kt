@@ -1,5 +1,6 @@
 package com.afrosin.lastpart.di
 
+import com.afrosin.lastpart.di.module.ApiModule
 import com.afrosin.lastpart.di.module.AppModule
 import com.afrosin.lastpart.di.module.CiceroneModule
 import com.afrosin.lastpart.di.module.RepoModule
@@ -16,7 +17,8 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         RepoModule::class,
-        CiceroneModule::class
+        CiceroneModule::class,
+        ApiModule::class
     ]
 )
 interface AppComponent {

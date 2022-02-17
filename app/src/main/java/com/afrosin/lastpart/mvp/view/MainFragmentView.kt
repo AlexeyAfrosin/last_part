@@ -7,4 +7,5 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface MainFragmentView : MvpView {
     fun init()
+    fun updateAdapter()
 }
