@@ -2,8 +2,8 @@ package com.afrosin.lastpart.mvp.room.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.afrosin.lastpart.mvp.room.rx.HotPostDao
-import com.afrosin.lastpart.mvp.room.rx.HotPostRemoteKeysDao
+import com.afrosin.lastpart.mvp.room.dao.HotPostDao
+import com.afrosin.lastpart.mvp.room.dao.HotPostRemoteKeysDao
 
 @Database(
     entities = [HotPostDao::class, HotPostRemoteKeysDao::class],

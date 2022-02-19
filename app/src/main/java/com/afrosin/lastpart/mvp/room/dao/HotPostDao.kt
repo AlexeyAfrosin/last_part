@@ -1,4 +1,4 @@
-package com.afrosin.lastpart.mvp.room.rx
+package com.afrosin.lastpart.mvp.room.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
@@ -15,7 +15,5 @@ interface HotPostDao {
     @Query("SELECT * FROM children_datas ORDER BY id ASC")
     fun selectAll(): PagingSource<Int, ChildrenData>
 
-    @Query("DELETE FROM children_datas")
-    fun clearMovies()
 }
 
