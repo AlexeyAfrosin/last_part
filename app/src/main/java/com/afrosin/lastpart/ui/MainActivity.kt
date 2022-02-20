@@ -1,48 +1,42 @@
 package com.afrosin.lastpart.ui
 
 import android.os.Bundle
-import com.afrosin.lastpart.mvp.presenter.MainPresenter
-import com.afrosin.lastpart.mvp.view.MainView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.afrosin.lastpart.R
-import com.afrosin.lastpart.databinding.ActivityMainBinding
-import com.github.terrakok.cicerone.NavigatorHolder
-import com.github.terrakok.cicerone.androidx.AppNavigator
-import moxy.MvpAppCompatActivity
-import moxy.presenter.InjectPresenter
-import moxy.presenter.ProvidePresenter
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-class MainActivity : MvpAppCompatActivity(), MainView {
-
-    private lateinit var binding: ActivityMainBinding
-
-
-    @InjectPresenter
-    lateinit var presenter: MainPresenter
-
-    @Inject
-    lateinit var navigatorHolder: NavigatorHolder
-
-    @ProvidePresenter
-    fun providePresenter() = MainPresenter().apply {
-        App.instance.appComponent.inject(this)
+class MainActivity : AppCompatActivity() {
+    private val redditAdapter = RedditAdapter()
+    private val redditViewModel: RedditViewModel by lazy {
+        ViewModelProvider(this).get(RedditViewModel::class.java)
     }
-
-    private val navigator = object : AppNavigator(this, R.id.container) {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        App.instance.appComponent.inject(this)
+        setContentView(R.layout.activity_main)
+
+        setupViews()
+        fetchPosts()
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        navigatorHolder.setNavigator(navigator)
+    private fun fetchPosts() {
+        lifecycleScope.launch {
+            redditViewModel.fetchPosts().collectLatest { pagingData ->
+                redditAdapter.submitData(pagingData)
+            }
+        }
+
     }
 
-    override fun exit() {
-        finish()
+    private fun setupViews() {
+        rvPosts.adapter = redditAdapter
+        rvPosts.adapter = redditAdapter.withLoadStateHeaderAndFooter(
+            header = RedditLoadingAdapter { redditAdapter.retry() },
+            footer = RedditLoadingAdapter { redditAdapter.retry() }
+        )
     }
 }
