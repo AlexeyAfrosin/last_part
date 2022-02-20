@@ -5,15 +5,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.afrosin.lastpart.mvp.model.ChildrenData
+import com.afrosin.lastpart.mvp.model.HotPost
 
 @Dao
 interface HotPostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(childrenData: List<ChildrenData>)
+    fun insertAll(hotPosts: List<HotPost>)
 
-    @Query("SELECT * FROM children_datas ORDER BY id ASC")
-    fun selectAll(): PagingSource<Int, ChildrenData>
+    @Query("SELECT * FROM hot_posts")
+    fun selectAll(): PagingSource<Int, HotPost>
 
 }
 

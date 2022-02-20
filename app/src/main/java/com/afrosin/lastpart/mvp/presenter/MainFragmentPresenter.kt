@@ -1,6 +1,6 @@
 package com.afrosin.lastpart.mvp.presenter
 
-import com.afrosin.lastpart.mvp.model.Children
+import com.afrosin.lastpart.mvp.model.HotPost
 import com.afrosin.lastpart.mvp.presenter.adapter.PostRVListPresenter
 import com.afrosin.lastpart.mvp.repo.ApiRepo
 import com.afrosin.lastpart.mvp.view.MainFragmentView
@@ -20,7 +20,7 @@ class MainFragmentPresenter : MvpPresenter<MainFragmentView>() {
     val listPresenter = LocalPostRVListPresenter()
 
     inner class LocalPostRVListPresenter : PostRVListPresenter {
-        val postList = mutableListOf<Children>()
+        val postList = mutableListOf<HotPost>()
 
         override fun getCount(): Int = postList.size
 
@@ -28,12 +28,12 @@ class MainFragmentPresenter : MvpPresenter<MainFragmentView>() {
             initView(view, getPost(view.pos))
         }
 
-        private fun getPost(pos: Int): Children = postList[pos]
+        private fun getPost(pos: Int): HotPost = postList[pos]
 
 
-        private fun initView(view: PostItemView, post: Children) {
+        private fun initView(view: PostItemView, post: HotPost) {
             with(view) {
-                setPostText(post.data.title)
+                setPostText(post.title)
             }
         }
     }
@@ -48,8 +48,9 @@ class MainFragmentPresenter : MvpPresenter<MainFragmentView>() {
         apiRepo
             .getHotPosts(count, after)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ hotPosts ->
-                listPresenter.postList.addAll(hotPosts.data.children)
+            .subscribe({ hotPostListing ->
+                val posts = hotPostListing.postContainer.map { it.data }
+                listPresenter.postList.addAll(posts)
                 viewState.updateAdapter()
 
             }, {

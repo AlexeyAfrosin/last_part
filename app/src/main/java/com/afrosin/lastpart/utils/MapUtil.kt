@@ -1,27 +1,29 @@
 package com.afrosin.lastpart.utils
 
-import com.afrosin.lastpart.mvp.model.*
+import com.afrosin.lastpart.mvp.model.HotPost
+import com.afrosin.lastpart.mvp.model.HotPostListing
+import com.afrosin.lastpart.mvp.model.PostContainer
+import com.afrosin.lastpart.mvp.model.response.HotPostApiResponse
+import com.afrosin.lastpart.mvp.model.response.HotPostResponse
+import com.afrosin.lastpart.mvp.model.response.PostContainerResponse
 
 
-fun mapToHotPost(responsePost: HotPostsResponse): HotPosts {
-    return HotPosts(
-        responsePost.kind,
-        mapToMainData(responsePost.data)
+fun mapToHotPostListing(responsePost: HotPostApiResponse): HotPostListing {
+    return HotPostListing(
+        responsePost.hotPostListing.after,
+        responsePost.hotPostListing.before,
+        mapToPostContainer(responsePost.hotPostListing.postContainerResponse)
     )
 }
 
-fun mapToMainData(mainDataResponse: MainDataResponse): MainData {
-    return MainData(
-        mainDataResponse.after,
-        mainDataResponse.dist,
-        mapToChildren(mainDataResponse.children)
-    )
+fun mapToPostContainer(postContainerResponse: List<PostContainerResponse>): List<PostContainer> {
+    return postContainerResponse.map { item ->
+        PostContainer(
+            mapToHotPost(item.data)
+        )
+    }
 }
 
-fun mapToChildren(childrenResponse: List<ChildrenResponse>): List<Children> {
-    return childrenResponse.map { Children(it.kind, mapToChildrenData(it.data)) }
-}
-
-fun mapToChildrenData(childrenDataResponse: ChildrenDataResponse): ChildrenData {
-    return ChildrenData(0, childrenDataResponse.title)
+fun mapToHotPost(hotPostResponse: HotPostResponse): HotPost {
+    return HotPost(hotPostResponse.key, hotPostResponse.title)
 }
