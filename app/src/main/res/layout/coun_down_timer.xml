@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_day_1_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_day_2_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_day_1_to_exam"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_colon_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:text="@string/colon_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_day_2_to_exam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_hour_1_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_colon_day"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tv_hour_2_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_hour_1_to_exam"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_colon_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:text="@string/colon_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_hour_2_to_exam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_minute_1_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_colon_hour"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_minute_2_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_minute_1_to_exam"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tv_colon_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:text="@string/colon_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_minute_2_to_exam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_second_1_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_colon_minute"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_second_2_to_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_between_digit"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/timer_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_second_1_to_exam"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tv_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_days_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/tv_days_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_day_1_to_exam"
+        app:layout_constraintTop_toBottomOf="@+id/tv_day_1_to_exam" />
+
+    <TextView
+        android:id="@+id/tv_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_hours_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/tv_days_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_hour_1_to_exam"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hour_1_to_exam" />
+
+    <TextView
+        android:id="@+id/tv_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_minutes_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/tv_days_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_minute_1_to_exam"
+        app:layout_constraintTop_toBottomOf="@+id/tv_minute_1_to_exam" />
+
+    <TextView
+        android:id="@+id/tv_seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_seconds_text"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/tv_days_text_size"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_second_1_to_exam"
+        app:layout_constraintTop_toBottomOf="@+id/tv_second_1_to_exam" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
