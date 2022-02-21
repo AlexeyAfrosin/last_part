@@ -44,6 +44,5 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun exit() {
         finish()
-        lk
     }
 }

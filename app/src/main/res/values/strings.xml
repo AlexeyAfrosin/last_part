@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LastPath</string>
+    <string name="binding_error">Ошибка инициализации биндинга</string>
 </resources>

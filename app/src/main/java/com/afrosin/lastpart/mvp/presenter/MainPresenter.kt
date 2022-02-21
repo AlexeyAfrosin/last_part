@@ -1,6 +1,7 @@
 package com.afrosin.lastpart.mvp.presenter
 
 import com.afrosin.lastpart.mvp.view.MainView
+import com.afrosin.lastpart.navigation.Screens
 import com.github.terrakok.cicerone.Router
 import moxy.InjectViewState
 import moxy.MvpPresenter
@@ -14,7 +15,7 @@ class MainPresenter : MvpPresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-//        router.newRootScreen(Screens.rootFragment())
+        router.newRootScreen(Screens.pulseFragment())
     }
 
 }
