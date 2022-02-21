@@ -51,7 +51,14 @@ class PulseFragment : MvpAppCompatFragment(), PulseFragmentView {
     }
 
     override fun init() {
+        initListeners()
         initRecyclerView()
+    }
+
+    private fun initListeners() {
+        binding.fabAddData.setOnClickListener {
+            presenter.showAddPulseDataDialog()
+        }
     }
 
     private fun initRecyclerView() {
@@ -61,5 +68,9 @@ class PulseFragment : MvpAppCompatFragment(), PulseFragmentView {
             layoutManager =
                 LinearLayoutManager(requireContext())
         }
+    }
+
+    override fun updateRecyclerView(pos: Int) {
+        pulseRVAdapter?.notifyItemInserted(pos)
     }
 }

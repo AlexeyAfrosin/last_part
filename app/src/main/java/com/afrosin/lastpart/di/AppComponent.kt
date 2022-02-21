@@ -3,6 +3,7 @@ package com.afrosin.lastpart.di
 import com.afrosin.lastpart.di.module.AppModule
 import com.afrosin.lastpart.di.module.CiceroneModule
 import com.afrosin.lastpart.di.module.RepoModule
+import com.afrosin.lastpart.mvp.presenter.AddPulseDataDialogFragmentPresenter
 import com.afrosin.lastpart.mvp.presenter.MainPresenter
 import com.afrosin.lastpart.mvp.presenter.PulseFragmentPresenter
 import com.afrosin.lastpart.ui.App
@@ -26,4 +27,6 @@ interface AppComponent {
 
     fun inject(pulseFragmentPresenter: PulseFragmentPresenter)
     fun inject(pulseRVAdapter: PulseRVAdapter)
+
+    fun inject(addPulseDataDialogPresenter: AddPulseDataDialogFragmentPresenter)
 }

@@ -15,3 +15,5 @@ fun getDate(year: Int, month: Int, date: Int, hrs: Int, min: Int): Date {
 
 fun Date.toStringFormat(patternDate: String = "dd.MM.yyyy HH:mm:ss"): String =
     SimpleDateFormat(patternDate, Locale.getDefault()).format(this)
+
+fun currentTime(): Date = Calendar.getInstance().time
