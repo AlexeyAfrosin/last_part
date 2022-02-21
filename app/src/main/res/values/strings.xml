@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">LastPath</string>
     <string name="binding_error">Ошибка инициализации биндинга</string>
+    <string name="fab_add_data_content_description">Добавить данные</string>
+    <string name="iv_pulse_content_description">пульс</string>
+    <string name="tv_pressure_delimiter_text">/</string>
 </resources>

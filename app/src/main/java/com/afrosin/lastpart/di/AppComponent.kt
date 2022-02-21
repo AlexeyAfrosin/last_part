@@ -7,6 +7,7 @@ import com.afrosin.lastpart.mvp.presenter.MainPresenter
 import com.afrosin.lastpart.mvp.presenter.PulseFragmentPresenter
 import com.afrosin.lastpart.ui.App
 import com.afrosin.lastpart.ui.MainActivity
+import com.afrosin.lastpart.ui.adapter.PulseRVAdapter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -23,5 +24,6 @@ interface AppComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(mainPresenter: MainPresenter)
 
-    fun inject(pulsemeFragmentPresenter: PulseFragmentPresenter)
+    fun inject(pulseFragmentPresenter: PulseFragmentPresenter)
+    fun inject(pulseRVAdapter: PulseRVAdapter)
 }

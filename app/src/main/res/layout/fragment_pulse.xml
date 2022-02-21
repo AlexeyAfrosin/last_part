@@ -4,17 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/firstFragment"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pulse"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="firstFragment"
-        android:textColor="#43a047"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
+        android:layout_marginEnd="@dimen/fab_add_data_margin_end"
+        android:layout_marginBottom="@dimen/fab_add_data_margin_bottom"
+        android:clickable="true"
+        android:contentDescription="@string/fab_add_data_content_description"
+        app:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/ic_heart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
