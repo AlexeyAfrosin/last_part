@@ -70,7 +70,11 @@ class PulseFragment : MvpAppCompatFragment(), PulseFragmentView {
         }
     }
 
-    override fun updateRecyclerView(pos: Int) {
+    override fun notifyInsertItem(pos: Int) {
         pulseRVAdapter?.notifyItemInserted(pos)
+    }
+
+    override fun notifyDataSetChanged() {
+        pulseRVAdapter?.notifyDataSetChanged()
     }
 }

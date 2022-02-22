@@ -1,7 +1,7 @@
 package com.afrosin.lastpart.mvp.presenter
 
+import com.afrosin.lastpart.mvp.datasource.PulseDataSource
 import com.afrosin.lastpart.mvp.model.Pulse
-import com.afrosin.lastpart.mvp.model.pulseList
 import com.afrosin.lastpart.mvp.presenter.adapter.PulseRVListPresenter
 import com.afrosin.lastpart.mvp.view.PulseFragmentView
 import com.afrosin.lastpart.mvp.view.item.PulseItemView
@@ -19,12 +19,17 @@ class PulseFragmentPresenter : MvpPresenter<PulseFragmentView>() {
 
     companion object {
         const val ADD_PULSE_DATA_RESULT = "ADD_PULSE_DATA_RESULT"
+        const val GET_ALL_PULSE_DATA_RESULT = "GET_ALL_PULSE_DATA_RESULT"
     }
 
     @Inject
     lateinit var router: Router
 
+    @Inject
+    lateinit var firebaseDataSource: PulseDataSource
+
     private var addPulseDataResultListener: ResultListenerHandler? = null
+    private var getAllPulseDataResultListener: ResultListenerHandler? = null
 
     val listPresenter = FrPulseRVListPresenter()
 
@@ -53,8 +58,20 @@ class PulseFragmentPresenter : MvpPresenter<PulseFragmentView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        listPresenter.pulseList.addAll(pulseList())
+        loadPulses()
         viewState.init()
+    }
+
+    private fun loadPulses() {
+        getAllPulseDataResultListener =
+            router.setResultListener(GET_ALL_PULSE_DATA_RESULT) { dataFromServer ->
+                (dataFromServer as? List<Pulse>)?.let { pulseList ->
+                    listPresenter.pulseList.addAll(pulseList)
+                    viewState.notifyDataSetChanged()
+                }
+            }
+
+        firebaseDataSource.getPulseData(router)
     }
 
     fun showAddPulseDataDialog() {
@@ -62,8 +79,8 @@ class PulseFragmentPresenter : MvpPresenter<PulseFragmentView>() {
             router.setResultListener(ADD_PULSE_DATA_RESULT) { newPulseData ->
                 (newPulseData as? Pulse)?.let { pulse ->
                     listPresenter.pulseList.add(pulse)
-
-                    viewState.updateRecyclerView(listPresenter.getCount() - 1)
+                    firebaseDataSource.setPulseData(newPulseData)
+                    viewState.notifyInsertItem(listPresenter.getCount() - 1)
                 }
             }
         router.navigateTo(Screens.addPulseDataDialogFragment())
@@ -72,6 +89,7 @@ class PulseFragmentPresenter : MvpPresenter<PulseFragmentView>() {
     override fun onDestroy() {
         super.onDestroy()
         addPulseDataResultListener?.dispose()
+        getAllPulseDataResultListener?.dispose()
     }
 
 }

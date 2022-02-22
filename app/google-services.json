@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "976010764130",
+    "project_id": "lastpath-pulse",
+    "storage_bucket": "lastpath-pulse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976010764130:android:c1f5c32acca653e680563b",
+        "android_client_info": {
+          "package_name": "com.afrosin.lastpart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "976010764130-dkrmjimv2ui41bm1q9vaioqmb3o7pioc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEblTMyTP71n8Chezw_5UlYOQL_njySTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976010764130-dkrmjimv2ui41bm1q9vaioqmb3o7pioc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,5 +7,6 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface PulseFragmentView : MvpView {
     fun init()
-    fun updateRecyclerView(pos: Int)
+    fun notifyInsertItem(pos: Int)
+    fun notifyDataSetChanged()
 }
