@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_date_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Дата Создания" />
+
+        <TextView
+            android:id="@+id/tv_top_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tv_top_pressure_margin_start"
+            app:layout_constraintStart_toEndOf="@+id/tv_date_created"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="187" />
+
+        <TextView
+            android:id="@+id/tv_pressure_delimiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tv_pressure_delimiter_margin_start"
+            android:text="@string/tv_pressure_delimiter_text"
+            app:layout_constraintStart_toEndOf="@+id/tv_top_pressure"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="/" />
+
+
+        <TextView
+            android:id="@+id/tv_bottom_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tv_bottom_pressure_margin_start"
+            app:layout_constraintStart_toEndOf="@+id/tv_pressure_delimiter"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="67" />
+
+        <ImageView
+            android:id="@+id/iv_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/iv_pulse_layout_margin_end"
+            android:contentDescription="@string/iv_pulse_content_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_pulse"
+            app:srcCompat="@drawable/ic_heart_red" />
+
+        <TextView
+            android:id="@+id/tv_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/tv_pulse_layout_margin_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="67" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

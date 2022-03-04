@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">LastPath</string>
+    <string name="binding_error">Ошибка инициализации биндинга</string>
+    <string name="fab_add_data_content_description">Добавить данные</string>
+    <string name="iv_pulse_content_description">пульс</string>
+    <string name="tv_pressure_delimiter_text">/</string>
+    <string name="ti_top_pressure_hint">Верхнее давление</string>
+    <string name="ti_bottom_pressure_hint">Нижнее давление</string>
+    <string name="ti_pulse_hint">Пульс</string>
+    <string name="bt_save_text">Сохранить</string>
+    <string name="bt_cancel_text">Отмена</string>
 </resources>

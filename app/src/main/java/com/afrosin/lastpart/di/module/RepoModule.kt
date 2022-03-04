@@ -1,5 +1,7 @@
 package com.afrosin.lastpart.di.module
 
+import com.afrosin.lastpart.mvp.datasource.PulseDataSource
+import com.afrosin.lastpart.mvp.datasource.PulseDataSourceFirebaseImpl
 import com.afrosin.lastpart.mvp.resource.ResourceProvider
 import com.afrosin.lastpart.ui.App
 import com.afrosin.lastpart.ui.resource.AndroidResourceProvider
@@ -15,5 +17,9 @@ class RepoModule {
         return AndroidResourceProvider(app)
     }
 
-
+    @Singleton
+    @Provides
+    fun firebaseDataSource(): PulseDataSource {
+        return PulseDataSourceFirebaseImpl()
+    }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_add_data_margin_bottom">20dp</dimen>
+    <dimen name="fab_add_data_margin_end">10dp</dimen>
+    <dimen name="tv_top_pressure_margin_start">30dp</dimen>
+    <dimen name="tv_pressure_delimiter_margin_start">5dp</dimen>
+    <dimen name="tv_bottom_pressure_margin_start">10dp</dimen>
+    <dimen name="tv_pulse_layout_margin_end">15dp</dimen>
+    <dimen name="iv_pulse_layout_margin_end">5dp</dimen>
+</resources>
